@@ -7,11 +7,4 @@ class SecretsController < ApplicationController
   def show
   end
 
-  private
-
-  def require_login
-    if (!session.include? :current_user)
-      redirect_to '/login'
-    end
-  end
 end
