@@ -6,4 +6,12 @@ class ApplicationController < ActionController::Base
   def current_user
     session[:name]
   end
+
+  private
+
+  def require_login
+    if (!current_user)
+      redirect_to controller: 'sessions', action: 'new'
+    end
+  end
 end
